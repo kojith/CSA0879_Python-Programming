@@ -1,0 +1,39 @@
+def find_mth_maximum(arr, M):
+    # Sort the array in descending order and return the Mth maximum element
+    sorted_arr = sorted(arr, reverse=True)
+    if M <= 0 or M > len(sorted_arr):
+        return None
+    return sorted_arr[M-1]
+
+def find_nth_minimum(arr, N):
+    # Sort the array in ascending order and return the Nth minimum element
+    sorted_arr = sorted(arr)
+    if N <= 0 or N > len(sorted_arr):
+        return None
+    return sorted_arr[N-1]
+
+def main():
+    # Sample input
+    arr = [14, 16, 87, 36, 25, 89, 34]
+    M = 1
+    N = 3
+    
+    # Find Mth maximum and Nth minimum
+    mth_max = find_mth_maximum(arr, M)
+    nth_min = find_nth_minimum(arr, N)
+    
+    if mth_max is not None and nth_min is not None:
+        # Calculate sum and difference
+        sum_result = mth_max + nth_min
+        difference_result = mth_max - nth_min
+        
+        # Print the results
+        print(f"{M}th Maximum Number = {mth_max}")
+        print(f"{N}th Minimum Number = {nth_min}")
+        print(f"Sum = {sum_result}")
+        print(f"Difference = {difference_result}")
+    else:
+        print("Invalid M or N value for the given array length.")
+
+if __name__ == "__main__":
+    main()
