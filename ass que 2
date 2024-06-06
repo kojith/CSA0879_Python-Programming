@@ -1,0 +1,47 @@
+def calculate_pow(x, n):
+    result = 1
+    for _ in range(n):
+        result *= x
+    return result
+
+def calculate_add(x, n):
+    return x + n
+
+def calculate_sub(x, n):
+    return x - n
+
+def calculate_mul(x, n):
+    return x * n
+
+def calculate_div(x, n):
+    if n == 0:
+        return "Division by zero is undefined"
+    return x / n
+
+def main():
+    x = int(input("Enter the value for X: "))
+    n = int(input("Enter the value for N: "))
+    
+    print("Choose the operation:")
+    print("1. Power (Pow(x, n))")
+    print("2. Addition (Add(x, n))")
+    print("3. Subtraction (Sub(x, n))")
+    print("4. Multiplication (Mul(x, n))")
+    print("5. Division (Div(x, n))")
+    choice = int(input("Enter your choice (1-5): "))
+    
+    if choice == 1:
+        print(f"Pow({x}, {n}) = {calculate_pow(x, n)}")
+    elif choice == 2:
+        print(f"Add({x}, {n}) = {calculate_add(x, n)}")
+    elif choice == 3:
+        print(f"Sub({x}, {n}) = {calculate_sub(x, n)}")
+    elif choice == 4:
+        print(f"Mul({x}, {n}) = {calculate_mul(x, n)}")
+    elif choice == 5:
+        print(f"Div({x}, {n}) = {calculate_div(x, n)}")
+    else:
+        print("Invalid choice!")
+
+if __name__ == "__main__":
+    main()
