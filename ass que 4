@@ -1,0 +1,27 @@
+def is_valid_username(username):
+    # Check length of username
+    if len(username) < 3 or len(username) > 15:
+        return False
+    
+    # Check if the username contains only alphanumeric characters
+    if not username.isalnum():
+        return False
+    
+    # Check if the username does not start with a number
+    if username[0].isdigit():
+        return False
+    
+    return True
+
+def main():
+    # Get username input from the user
+    username = input("Enter the username: ")
+    
+    # Check if the username is valid
+    if is_valid_username(username):
+        print("The entered username is valid.")
+    else:
+        print("The entered username is not valid.")
+        
+if __name__ == "__main__":
+    main()
