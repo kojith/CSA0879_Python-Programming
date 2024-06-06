@@ -1,0 +1,31 @@
+def calculate_atm_balance(denominations, notes):
+    total_balance = 0
+    for denomination, count in zip(denominations, notes):
+        total_balance += denomination * count
+    return total_balance
+
+def main():
+    denominations = []
+    notes = []
+
+    for i in range(1, 5):
+        try:
+            denomination = int(input(f"Enter the {i}st Denomination: "))
+            if denomination not in [2000, 500, 200, 100]:
+                print("Invalid denomination entered. Please enter one of the following: 2000, 500, 200, 100.")
+                return
+            num_notes = int(input(f"Enter the {i}st Denomination number of notes: "))
+            if num_notes < 0:
+                print("The number of notes cannot be negative.")
+                return
+            denominations.append(denomination)
+            notes.append(num_notes)
+        except ValueError:
+            print("Invalid input. Please enter valid numbers.")
+            return
+
+    total_balance = calculate_atm_balance(denominations, notes)
+    print(f"Total Available Balance in ATM: {total_balance}")
+
+if __name__ == "__main__":
+    main()
