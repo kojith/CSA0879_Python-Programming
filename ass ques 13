@@ -1,0 +1,28 @@
+def is_prime(num):
+    """ Function to check if a number is prime """
+    if num <= 1:
+        return False
+    if num == 2:
+        return True  # 2 is prime
+    if num % 2 == 0:
+        return False  # Even numbers greater than 2 are not prime
+    for i in range(3, int(num**0.5) + 1, 2):
+        if num % i == 0:
+            return False
+    return True
+
+def print_non_prime_numbers(A, B):
+    """ Function to print all non-prime numbers between A and B """
+    non_prime_numbers = []
+    for num in range(A, B + 1):
+        if not is_prime(num):
+            non_prime_numbers.append(num)
+    print(", ".join(map(str, non_prime_numbers)))
+
+# Input from user or any other source
+try:
+    A = int(input("Enter A: "))  # Example: Enter A: 12
+    B = int(input("Enter B: "))  # Example: Enter B: 19
+    print_non_prime_numbers(A, B)
+except ValueError:
+    print("Invalid input. Please enter valid integers for A and B.")
