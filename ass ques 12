@@ -1,0 +1,22 @@
+def is_leap_year(year):
+    """ Function to check if a year is a leap year """
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return True
+    else:
+        return False
+
+def find_anniversary(year):
+    """ Function to find the next or previous anniversary date based on leap year """
+    if is_leap_year(year):
+        next_anniversary_year = year + 1
+        print(f"Given Anniversary Year: Leap Year. Anniversary Date: 04/1x 1/{next_anniversary_year}")
+    else:
+        previous_anniversary_year = year - 1
+        print(f"Given Anniversary Year: Non Leap Year. Anniversary Date: 04/1x 1/{previous_anniversary_year}")
+
+# Input from user or any other source
+try:
+    year = int(input("Enter Year: "))  # Example: Enter Year: 1946
+    find_anniversary(year)
+except ValueError:
+    print("Invalid input. Please enter a valid year.")
